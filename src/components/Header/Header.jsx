@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
 
-export const Header = () => {
+export const Header = ({ children }) => {
   return (
     <>
       <header className={styles.header}>
@@ -36,11 +36,9 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-       //✔ Add base currency here !!!
+        {/* //✔ Add base currency here !!! */}
       </header>
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <Suspense fallback={null}>{children}</Suspense>
     </>
   );
 };
